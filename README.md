@@ -3,7 +3,7 @@
 * [What is JDS?](#what-is-jds)
 * [Requirements](#requirements)
 * [Using JDS](#using-jds)
- * [Maven](#maven)
+  * [Maven](#maven)
 * [Documentation and getting help](#documentation-and-getting-help)
 * [Links](#links)
 
