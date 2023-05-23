@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: ${profiles_active:local}
+  output:
+    ansi:
+      enabled: always
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+

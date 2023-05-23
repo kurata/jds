@@ -1,0 +1,6 @@
+profile: local
+
+jds:
+  route:
+    strategy: generic
+

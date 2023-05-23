@@ -1,0 +1,5 @@
+profile: test-by-domain
+
+jds:
+  route:
+    strategy: by_domain
