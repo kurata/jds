@@ -5,6 +5,7 @@
 * [Using JDS](#using-jds)
   * [Maven](#maven)
 * [Documentation and getting help](#documentation-and-getting-help)
+* [Building from Source](#building-from-source)
 * [Links](#links)
 
 ## What is JDS?
@@ -73,6 +74,12 @@ For Maven-based projects, add the following to you POM file in order to use JDS.
 ## Documentation and getting help
 
 To learn more about JDS.
+
+## Building from Source
+
+JDS use Maven for its build. Java 17 is required for building JDS. To build the complete project, run
+
+    ./mvnw clean install
 
 ## Links
 
