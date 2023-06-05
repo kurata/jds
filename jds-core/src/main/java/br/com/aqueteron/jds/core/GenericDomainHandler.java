@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
-import java.util.List;
-
 @Slf4j
 @Component
 public class GenericDomainHandler extends AbstractDomainHandler {
@@ -21,13 +19,33 @@ public class GenericDomainHandler extends AbstractDomainHandler {
     }
 
     public ServerResponse getDefaultDomains(final ServerRequest serverRequest) {
-        List<DomainServiceMap<? extends Enum<?>>> domainServiceMapList = this.domainServiceMapProvider.loadDomainServiceMap();
-        return ServerResponse.ok().body(new DomainListApiSchema(domainServiceMapList.stream().map(DomainServiceMap::getResource).toList()));
+        return ServerResponse
+                .ok()
+                .body(
+                        DomainListApiSchema
+                                .builder()
+                                .domains(
+                                        this.domainServiceMapProvider
+                                                .loadDomainServiceMap()
+                                                .stream()
+                                                .map(DomainServiceMap::getResource).toList()
+                                )
+                                .build()
+                );
     }
 
     public ServerResponse getDefaultDomain(final ServerRequest serverRequest) {
-        List<DomainServiceMap<? extends Enum<?>>> domainServiceMapList = this.domainServiceMapProvider.loadDomainServiceMap();
-        return ServerResponse.ok().body(domainServiceMapList.stream().filter(dsm -> dsm.getResource().equals(serverRequest.pathVariable("key"))).findFirst().map(this::loadDomainApiSchema));
+        return ServerResponse
+                .ok()
+                .body(
+                        this.domainServiceMapProvider
+                                .loadDomainServiceMap()
+                                .stream()
+                                .filter(dsm -> dsm.getResource().equals(serverRequest.pathVariable("key")))
+                                .findFirst()
+                                .map(this::loadDomainApiSchema)
+                                .orElseThrow(JdsDomainNotFoundException::new)
+                );
     }
 
 }

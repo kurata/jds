@@ -7,6 +7,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
+    problemdetails:
+      enabled: true
 
 springdoc:
   swagger-ui:

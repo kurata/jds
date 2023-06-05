@@ -2,7 +2,6 @@ package br.com.aqueteron.jds.core;
 
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.extern.slf4j.Slf4j;
-import org.springdoc.core.fn.builders.operation.Builder;
 import org.springdoc.webmvc.core.fn.SpringdocRouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
